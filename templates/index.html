@@ -1,0 +1,22 @@
+<html>
+<body>
+<h1>
+    {{title}}
+
+</h1>
+<ul>
+    {% for foo in hotels  %}
+
+   <li>{{foo.nom}}</li>
+    <ul>
+    {% for chambre in  foo.chambre_set.all %}
+    <li>{{ chambre.numero}} :{{chambre.diponibilite }}</li>
+    {% endfor %}
+
+    </ul>
+
+{% endfor %}
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<body>
+<h1>
+    {{title}}
+
+</h1>
+
+
+<table border="1">
+<thead>
+<tr>
+    <td>Client</td>
+    <td>Hotel</td>
+    <td>Date Reservation</td>
+
+
+</tr>
+</thead>
+<tbody>
+{% for foo in reservations  %}
+<tr>
+
+    <td>{{foo.client}}</td>
+    <td>{{foo.hotel}}</td>
+    <td>{{foo.date_reservation}}</td>
+
+
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+</body>
+</html>

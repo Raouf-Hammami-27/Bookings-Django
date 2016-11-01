@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>
+    {{title}}
+
+</h1>
+<thead>
+<tr>
+    <td>Numero</td>
+    <td>Origine</td>
+    <td>Destination</td>
+    <td>Depart</td>
+    <td>Arrivee</td>
+    <td>Modele</td>
+
+</tr>
+</thead>
+<tbody>
+{% for foo in vols  %}
+<tr>
+
+l<td>{{foo.numero}}</td>
+    <td>{{foo.origine}}</td>
+    <td>{{foo.destination}}</td>
+    <td>{{foo.depart}}</td>
+    <td>{{foo.arrivee}}</td>
+    <td>{{foo.modele}}</td>
+
+</tr>
+
+{% endfor %}
+</tbody>
+
+</body>
+</html>
