@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
+from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -45,3 +47,22 @@ def reservations(request):
         'title': 'liste des reservations',
     }
     return render(request , 'reservations.html',data)
+
+class ReservationList(ListView):
+    model = Reservation
+class ReservationCreate(CreateView):
+    model = Reservation
+    fields = ['hotel','client','date_reservation']
+    success_url = '/reservations'
+class ReservationUpdate(UpdateView):
+    model = Reservation
+    fields = ['hotel','client','date_reservation']
+    success_url = '/reservations'
+class ReservationDetail(DetailView):
+    model = Reservation
+    fields = ['hotel','client','date_reservation']
+class ReservationDelete(DeleteView):
+    model = Reservation
+    fields = ['hotel','client','date_reservation']
+    success_url = '/reservations'
+

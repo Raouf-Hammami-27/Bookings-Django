@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="text-primary">Details of Reservation</h1>
+
+<ul class="list-group">
+    <li class="list-group-item-heading">
+        <h2>{{object.id}}</h2>
+    </li>
+    <li class="list-group-item-text">
+        <p>{{object.hotel}}</p>
+    </li>
+    <li class="list-group-item-text">
+        <p>{{object.client}}</p>
+    </li>
+    <li class="list-group-item-text">
+         <p>{{object.date_reservation}}</p>
+    </li>
+</ul>
+
+<a href="{%  url 'reservations-list' %}" > return</a>
+{% endblock %}

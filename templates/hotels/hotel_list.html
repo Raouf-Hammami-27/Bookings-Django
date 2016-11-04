@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<title>List of Hotels</title>
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<table border="1">
+{% extends "base.html" %}
+
+{% block content %}
+<h1>List of Hotels</h1>    <br>
+<table class="table">
     <tr>
     <th>Nom</th>
     <th>Nombre etoiles</th>
@@ -23,6 +19,5 @@
 {% endfor %}
 </table>
 
-<a href="{%  url 'hotel-create' %}" > Create New Entry</a>
-</body>
-</html>
+<a href="{%  url 'hotel-create' %}" class="btn-link"> Create New Entry</a>
+{% endblock %}

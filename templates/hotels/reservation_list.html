@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>List of Reservations</h1>    <br>
+<table class="table">
+
+    <tr>
+        <th>Id</th>
+    <th>Hotel</th>
+    <th>Client</th>
+    <th>Reservation Date </th>
+    <th>Actions</th>
+
+    </tr>
+{% for foo in object_list  %}
+    <tr>
+        <td>  <a href="{%  url 'reservation-detail' pk=foo.id %}"> {{foo.id}} </a> </td>
+        <td>{{foo.hotel}}</td>
+        <td>{{foo.client}}</td>
+        <td>{{foo.date_reservation}}</td>
+        <td><a href="{%  url 'reservation-delete' pk=foo.id %}">Delete</a><br><a href="{%  url 'reservation-update' pk=foo.id %}">Update</a><br><a href="{%  url 'reservation-detail' pk=foo.id %}">Details</a></td>
+    </tr>
+{% endfor %}
+</table>
+
+<a href="{%  url 'reservation-create' %}" > Create New Entry</a>
+{% endblock %}

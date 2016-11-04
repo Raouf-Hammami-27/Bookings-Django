@@ -15,17 +15,26 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views
 from hotels import views as hv
 from flights import views as fv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #url(r'^hotels$',hv.index),
-    url(r'^hotels$',hv.HotelList.as_view(),name="hotels-list"),
-    url(r'^hotels/(?P<pk>\d+)$',hv.HotelDetail.as_view(),name="hotel-detail"),
-    url(r'^hotel/create$',hv.HotelCreate.as_view(),name="hotel-create"),
-    url(r'^hotel/update/(?P<pk>\d+)$',hv.HotelUpdate.as_view(),name="hotel-update"),
-    url(r'^hotel/delete/(?P<pk>\d+)$',hv.HotelDelete.as_view(),name="hotel-delete"),
-    url(r'^vols$',fv.index),
-    url(r'^reservations$',hv.reservations),
+    # url(r'^hotels$',hv.index),
+    url(r'^hotels$', hv.HotelList.as_view(), name="hotels-list"),
+    url(r'^hotels/(?P<pk>\d+)$', hv.HotelDetail.as_view(), name="hotel-detail"),
+    url(r'^hotel/create$', hv.HotelCreate.as_view(), name="hotel-create"),
+    url(r'^hotel/update/(?P<pk>\d+)$', hv.HotelUpdate.as_view(), name="hotel-update"),
+    url(r'^hotel/delete/(?P<pk>\d+)$', hv.HotelDelete.as_view(), name="hotel-delete"),
+    url(r'^vols$', fv.index),
+
+    url(r'^reservations$', hv.ReservationList.as_view(), name="reservations-list"),
+    url(r'^reservations/(?P<pk>\d+)$', hv.ReservationDetail.as_view(), name="reservation-detail"),
+    url(r'^reservation/create$', hv.ReservationCreate.as_view(), name="reservation-create"),
+    url(r'^reservation/update/(?P<pk>\d+)$', hv.ReservationUpdate.as_view(), name="reservation-update"),
+    url(r'^reservation/delete/(?P<pk>\d+)$', hv.ReservationDelete.as_view(), name="reservation-delete"),
+
+    url(r'^login/$', views.login,{'template_name': 'registration/login.html'}, name="login"),
+    url(r'^logout/$', views.logout, {'template_name': 'registration/logged_out.html'},name="logout"),
 ]
